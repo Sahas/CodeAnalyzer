@@ -1,0 +1,44 @@
+plugins {
+    id 'java'
+}
+
+group 'com.code.analyzer'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+task analyzeCode(type: JavaExec, dependsOn: build) {
+    classpath sourceSets.main.runtimeClasspath
+    main = "com.code.tools.analyzer.CodeAnalyzer"
+    args "$path"
+}
+
+dependencies {
+
+    // lombok
+    implementation 'org.projectlombok:lombok:1.18.20'
+    annotationProcessor 'org.projectlombok:lombok:1.18.20'
+
+    // apache dependencies
+    implementation group: 'org.apache.commons', name: 'commons-text', version: '1.9'
+    implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.12.0'
+    implementation 'org.apache.commons:commons-collections4:4.4'
+    implementation group: 'commons-io', name: 'commons-io', version: '2.6'
+
+    // Jackson annotations
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.12.3'
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.12.3'
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version: '2.12.3'
+
+
+    // logging dependencies
+    implementation 'ch.qos.logback:logback-classic:1.2.3'
+    implementation 'org.slf4j:jul-to-slf4j:1.7.30'
+    implementation 'org.slf4j:log4j-over-slf4j:1.7.30'
+
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
