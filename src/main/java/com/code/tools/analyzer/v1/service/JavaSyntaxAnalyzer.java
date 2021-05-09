@@ -57,6 +57,7 @@ public class JavaSyntaxAnalyzer implements SyntaxAnalyzer {
       } else if (isMultiLineComment(cleanLine)) {
         int commentLength = multiLineCommentLength(lines, i);
         multiCommentLines++;
+        //multiCommentsLines += (commentLength  -1);
         i += (commentLength - 1);
         totalLines += (commentLength - 1);
       } else {

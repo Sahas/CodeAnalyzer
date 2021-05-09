@@ -25,6 +25,7 @@
 ###### Limitations:
 1. Doesn't support multi-line variable declarations or assignments 
 2. Doesn't identify methods
+3. Variable declaration regex is not exhaustively tested.
 
 ## Functional
 1. Input = Single source File of a language
@@ -42,7 +43,8 @@
 Not necessary to have running code for the following requirements, but account for these in your design.
 1. Supporting multiple syntaxes - [Design Support  Done  ->  Extend SyntaxAnalyzer]
 2. Supporting multiple files and giving totals for an entire source tree - [Done -> Check SourceProcessor.processAndAggregate()] 
-3. Supporting multi-line comments - [Done. Irrespective  of length of MultilineComment,  it  is always treated as 1 ]
+3. Supporting multi-line comments - [Done. Irrespective  of length of MultilineComment,  
+it  is always treated as 1. Uncomment count updation code to treat each line as part of count ]
 4. Ability to add more granular breakup (eg: classify lines as imports, variable declarations, etc) - [Done. 
 Check JavaSyntaxAnalyzer.analyze(). Check test files for proper understanding of Variable declaration Pattern syntax]
 
